@@ -1,0 +1,51 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+        lombokVersion = '1.18.2'
+        hsqldbVersion = '2.4.1'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+}
+
+plugins {
+    id 'net.ltgt.apt' version '0.10'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+group = 'ru.picnic'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    runtime('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compileOnly('org.projectlombok:lombok:' + lombokVersion)
+    apt 'org.projectlombok:lombok:' + lombokVersion
+    compile('org.hsqldb:hsqldb:' + hsqldbVersion)
+    compile('com.h2database:h2')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
+    compile ('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
+    compile ('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
+    compile ('org.mapstruct:mapstruct-processor:1.2.0.Final')
+    apt ('org.mapstruct:mapstruct-processor:1.2.0.Final')
+}
