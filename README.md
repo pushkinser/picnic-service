@@ -1,5 +1,6 @@
 # 🗺️ Picnic Service
-Some service for create picnic with friends. Choose a place, time, create a menu, entertainment, invite a friends, meet and have fun!
+Сервис для создания и планирования пикников с друзьями. Достаточно выбрать место, время, выбрать необходимое и отправиться на природу!
+
 
 [![Build Status](https://travis-ci.org/pushkinser/picnic-service.svg?branch=master)](https://travis-ci.org/pushkinser/picnic-service)
 
@@ -12,7 +13,7 @@ $ gradle clean build
 ```
 ### 🗄️ Database
 
-Using embedded HSQLDB
+В проекте используется встроенная HSQLDB:
 
 TABLE     | COLUMNS
 ----------|-------
