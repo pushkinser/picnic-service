@@ -1,4 +1,4 @@
-package ru.picnic.picnicservice.controller;
+package ru.picnic.picnicservice.controller.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,6 @@ public class UserRestController {
     
     private final IUserService userService;
     private final Logger logger = LoggerFactory.getLogger(UserRestController.class);
-   
     
     @Autowired
     public UserRestController(IUserService userService) {
