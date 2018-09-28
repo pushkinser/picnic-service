@@ -15,9 +15,11 @@ $ gradle clean build
 
 В проекте используется встроенная HSQLDB:
 
-TABLE     | COLUMNS
-----------|-------
-user      | id, user_name, password, email
-role      | id, role_name
-user_role | id, user_id, role_id
+TABLE         | COLUMNS                                       |COMMENT
+--------------|-----------------------------------------------|---------
+user          | id, user_name, password, email                |user info
+role          | id, role_name                                 |role info
+user_role     | id, user_id, role_id                          |relation user @OneToOne role
+item_category | id, category_name                             |category info
+item          | id, item_title, description, item_category_id |item info
 
