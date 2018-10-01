@@ -7,6 +7,8 @@ import ru.picnic.picnicservice.mapper.ItemMapper;
 import ru.picnic.picnicservice.model.Item;
 import ru.picnic.picnicservice.repositories.ItemRepository;
 
+import java.util.List;
+
 @Service
 public class ItemServiceImpl implements IItemService {
     
@@ -21,5 +23,11 @@ public class ItemServiceImpl implements IItemService {
     public ItemDTO getItemById(Long id) {
         Item item = itemRepository.findById(id).orElse(null);
         return ItemMapper.MAPPER.itemToItemDTO(item);
+    }
+    
+    @Override
+    public List<ItemDTO> getAllItems() {
+        List<Item> items = itemRepository.findAll();
+        return ItemMapper.MAPPER.itemToItemDTO(items);
     }
 }

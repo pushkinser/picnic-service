@@ -6,6 +6,8 @@ import org.mapstruct.factory.Mappers;
 import ru.picnic.picnicservice.dto.ItemDTO;
 import ru.picnic.picnicservice.model.Item;
 
+import java.util.List;
+
 @Mapper
 public interface ItemMapper {
     
@@ -16,4 +18,6 @@ public interface ItemMapper {
     
     @Mapping(source = "itemCategory", target = "category")
     ItemDTO itemToItemDTO(Item item);
+    
+    List<ItemDTO> itemToItemDTO(List<Item> itemList);
 }
