@@ -11,6 +11,22 @@ $ git clone https://github.com/pushkinser/picnic-service.git
 $ cd picnic-service
 $ gradle clean build
 ```
+
+### 🚪 Endpoints
+
+#### User Resources
+
+URL               | HTTP Method | Description
+------------------|-------------|------------
+ `api/user/:id`   | GET         | get user by id
+ `api/user/all`   | GET         | get all user
+
+
+### Item Resources
+URL             | HTTP Method | Description
+----------------|-------------|------------
+`api/item/:id`  | GET         | get item by id
+
 ### 🗄️ Database
 
 В проекте используется встроенная HSQLDB:
