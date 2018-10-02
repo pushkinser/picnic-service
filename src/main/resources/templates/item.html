@@ -5,12 +5,14 @@
     <title>items</title>
 </head>
 <body>
-  <table>
-<tr th:each="item : ${items}">
+<table>
+    <tr>
+        <!--/*@thymesVar id="item" type="ru.picnic.picnicservice.dto.ItemDTO"*/-->
+        <!--/*@thymesVar id="id" type="java.lang.Long"*/-->
         <td th:text="${item.id}">1</td>
-        <td><a th:href="@{'/item/' + ${item.id}}" th:text="${item.title}">Title ...</a></td>
+        <td th:text="${item.title}">Title ...</td>
         <td th:text="${item.description}">Text ...</td>
     </tr>
-        </table>
+</table>
 </body>
-</html>
+<!--</html>-->
