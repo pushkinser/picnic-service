@@ -38,4 +38,12 @@ public class ItemViewController {
         return itemPage;
     }
     
+    @GetMapping("/item/edit/{id}")
+    public ModelAndView editItemInfo(@PathVariable("id") Long id) {
+        ModelAndView editItemPage = new ModelAndView();
+        ItemDTO item = itemService.getItemById(id);
+        editItemPage.addObject("item", item);
+        editItemPage.setViewName("edit/item");
+        return editItemPage;
+    }
 }

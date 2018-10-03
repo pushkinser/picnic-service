@@ -30,4 +30,11 @@ public class ItemServiceImpl implements IItemService {
         List<Item> items = itemRepository.findAll();
         return ItemMapper.MAPPER.itemToItemDTO(items);
     }
+    
+    @Override
+    public void editItemById(ItemDTO itemDTO) {
+        Item item = ItemMapper.MAPPER.itemDTOToItem(itemDTO);
+        itemRepository.save(item);
+    }
+    
 }

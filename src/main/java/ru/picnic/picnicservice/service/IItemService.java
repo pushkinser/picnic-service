@@ -9,4 +9,6 @@ public interface IItemService {
     public ItemDTO getItemById(Long id);
     
     public List<ItemDTO> getAllItems();
+    
+    public void editItemById(ItemDTO itemDTO);
 }

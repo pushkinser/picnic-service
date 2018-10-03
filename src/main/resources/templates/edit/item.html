@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit item</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="item" type="ru.picnic.picnicservice.dto.ItemDTO"*/-->
+<form action="#" th:action="@{/api/item/edit/}"
+      th:object="${item}" method="POST" >
+    Id:
+    <input type="text" th:field="*{id}"/>
+    <p>
+    Title:
+    <input type="text" th:field="*{title}"/>
+    <p>
+    Description:
+    <input type="text"  th:field="*{description}"/>
+    <p>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>
