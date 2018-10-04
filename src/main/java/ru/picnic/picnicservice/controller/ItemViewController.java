@@ -2,10 +2,7 @@ package ru.picnic.picnicservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.picnic.picnicservice.controller.api.ItemRestController;
 import ru.picnic.picnicservice.dto.ItemDTO;
@@ -14,6 +11,7 @@ import ru.picnic.picnicservice.service.IItemService;
 import java.util.List;
 
 @Controller
+@RequestMapping("/item")
 public class ItemViewController {
     
     private final ItemRestController itemRestController;
@@ -26,15 +24,16 @@ public class ItemViewController {
         this.itemRestController = itemRestController;
     }
     
-    @GetMapping("/items")
+    @GetMapping("/all")
     public ModelAndView getItemList() {
         ModelAndView itemsPage = new ModelAndView();
         List<ItemDTO> items = itemService.getAllItems();
         itemsPage.addObject("items", items);
+        itemsPage.setViewName("items");
         return itemsPage;
     }
     
-    @GetMapping("/item/{id}")
+    @GetMapping("/{id}")
     public ModelAndView getItemInfo(@PathVariable("id") Long id) {
         ModelAndView itemPage = new ModelAndView();
         ItemDTO item = itemService.getItemById(id);
@@ -43,7 +42,7 @@ public class ItemViewController {
         return itemPage;
     }
     
-    @GetMapping("/item/edit/{id}")
+    @GetMapping("/edit/{id}")
     public ModelAndView editItemInfo(@PathVariable("id") Long id) {
         ModelAndView editItemPage = new ModelAndView();
         ItemDTO item = itemService.getItemById(id);
@@ -52,9 +51,9 @@ public class ItemViewController {
         return editItemPage;
     }
     
-    @PostMapping("/item/edit")
+    @PostMapping("/edit")
     public ModelAndView editItemInfo(@ModelAttribute("item") ItemDTO itemDTO) {
         itemRestController.updateItemDTO(itemDTO);
-        return new ModelAndView("redirect:/items");
+        return new ModelAndView("redirect:/item/all");
     }
 }
