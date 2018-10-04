@@ -7,7 +7,7 @@
 <body>
 
 <!--/*@thymesVar id="item" type="ru.picnic.picnicservice.dto.ItemDTO"*/-->
-<form action="#" th:action="@{/api/item/edit/}"
+<form action="#" th:action="@{/item/edit}"
       th:object="${item}" method="POST" >
     Id:
     <input type="text" th:field="*{id}"/>

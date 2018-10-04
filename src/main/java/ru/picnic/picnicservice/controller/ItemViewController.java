@@ -3,8 +3,11 @@ package ru.picnic.picnicservice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import ru.picnic.picnicservice.controller.api.ItemRestController;
 import ru.picnic.picnicservice.dto.ItemDTO;
 import ru.picnic.picnicservice.service.IItemService;
 
@@ -13,12 +16,14 @@ import java.util.List;
 @Controller
 public class ItemViewController {
     
+    private final ItemRestController itemRestController;
     
     private final IItemService itemService;
     
     @Autowired
-    public ItemViewController(IItemService itemService) {
+    public ItemViewController(IItemService itemService, ItemRestController itemRestController) {
         this.itemService = itemService;
+        this.itemRestController = itemRestController;
     }
     
     @GetMapping("/items")
@@ -45,5 +50,11 @@ public class ItemViewController {
         editItemPage.addObject("item", item);
         editItemPage.setViewName("edit/item");
         return editItemPage;
+    }
+    
+    @PostMapping("/item/edit")
+    public ModelAndView editItemInfo(@ModelAttribute("item") ItemDTO itemDTO) {
+        itemRestController.updateItemDTO(itemDTO);
+        return new ModelAndView("redirect:/items");
     }
 }

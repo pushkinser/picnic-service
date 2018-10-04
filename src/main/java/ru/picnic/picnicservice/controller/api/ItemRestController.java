@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.picnic.picnicservice.dto.ItemDTO;
 import ru.picnic.picnicservice.service.IItemService;
 
-@Controller
+@RestController
 @RequestMapping("/api/item")
 public class ItemRestController {
     
@@ -21,21 +21,20 @@ public class ItemRestController {
     }
     
     @GetMapping("/{id}")
-    @ResponseBody
     public ItemDTO getItemById(@PathVariable("id") Long id) {
         logger.info("Get item by id " + id);
         return itemService.getItemById(id);
     }
     
-    @RequestMapping(value = "/edit/", method = RequestMethod.POST)
-    public String updateItemDTO(@ModelAttribute("item") ItemDTO itemDTO) {
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public Long updateItemDTO(@ModelAttribute("item") ItemDTO itemDTO) {
         Long id = itemDTO.getId();
         logger.info("Update item by id " + id);
         // TODO: сделать выбор категории на странице редактирования карточки
         // Bad hardcode
         itemDTO.setCategory(itemService.getItemById(id).getCategory());
         itemService.editItemById(itemDTO);
-        return "redirect:/items";
+        return itemDTO.getId();
     }
     
 }
