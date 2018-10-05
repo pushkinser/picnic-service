@@ -23,9 +23,10 @@ URL               | HTTP Method | Description
 
 
 ### Item Resources
-URL             | HTTP Method | Description
-----------------|-------------|------------
-`api/item/:id`  | GET         | get item by id
+URL             | HTTP Method |Model Attribute       | Description
+----------------|-------------|----------------------|------------
+`api/item/:id`  | GET         |                      | get item by id
+`api/edit`      | POST        |"item" ItemDTO        | edit item
 
 ### 🗄️ Database
 
