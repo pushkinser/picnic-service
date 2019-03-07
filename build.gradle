@@ -4,7 +4,7 @@ buildscript {
         springSecurity = '3.0.2.RELEASE'
         lombokVersion = '1.18.2'
         hsqldbVersion = '2.4.1'
-        mapstructVersion = '1.2.0.Final'
+        mapstructVersion = '1.3.0.Final'
     }
     repositories {
         mavenCentral()
