@@ -7,3 +7,10 @@ INSERT INTO role (role_name) VALUES ('USER');
 
 INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO user_role (user_id, role_id) VALUES (2, 2);
+
+INSERT INTO item_category (category_name) VALUES ('food');
+INSERT INTO item_category (category_name) VALUES ('drink');
+INSERT INTO item_category (category_name) VALUES ('entertainment');
+
+INSERT INTO item (item_title, description, item_category_id) VALUES ('burger', 'smell and hype food', 1);
+INSERT INTO item (item_title, description, item_category_id) VALUES ('orange juice', 'simple orange juice', 2);

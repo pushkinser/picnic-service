@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>items</title>
+</head>
+<body>
+<table>
+    <tr>
+        <!--/*@thymesVar id="item" type="ru.picnic.picnicservice.domain.dto.ItemDTO"*/-->
+        <!--/*@thymesVar id="id" type="java.lang.Long"*/-->
+        <td th:text="${item.id}">1</td>
+        <td th:text="${item.title}">Title ...</td>
+        <td th:text="${item.description}">Text ...</td>
+    </tr>
+</table>
+</body>
+<!--</html>-->
