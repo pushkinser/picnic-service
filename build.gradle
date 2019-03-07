@@ -1,8 +1,10 @@
 buildscript {
     ext {
         springBootVersion = '2.0.4.RELEASE'
+        springSecurity = '3.0.2.RELEASE'
         lombokVersion = '1.18.2'
         hsqldbVersion = '2.4.1'
+        mapstructVersion = '1.2.0.Final'
     }
     repositories {
         mavenCentral()
@@ -32,20 +34,20 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    runtime('org.springframework.boot:spring-boot-devtools')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('org.springframework.boot:spring-boot-starter-jdbc')
-    compile('org.springframework.boot:spring-boot-starter-security')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compileOnly('org.projectlombok:lombok:' + lombokVersion)
-    apt 'org.projectlombok:lombok:' + lombokVersion
-    compile('org.hsqldb:hsqldb:' + hsqldbVersion)
-    compile('com.h2database:h2')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('org.springframework.security:spring-security-test')
-    compile ('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
-    compile ('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
-    compile ('org.mapstruct:mapstruct-processor:1.2.0.Final')
-    apt ('org.mapstruct:mapstruct-processor:1.2.0.Final')
+    runtime "org.springframework.boot:spring-boot-devtools"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    compile "org.springframework.boot:spring-boot-starter-security"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.hsqldb:hsqldb:${hsqldbVersion}"
+    compile "com.h2database:h2"
+    compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:${springSecurity}"
+    compile "org.mapstruct:mapstruct-jdk8:${mapstructVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    compileOnly "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    apt "org.projectlombok:lombok:${lombokVersion}", "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.springframework.security:spring-security-test"
 }
