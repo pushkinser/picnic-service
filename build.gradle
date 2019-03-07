@@ -46,7 +46,6 @@ dependencies {
     compile "org.mapstruct:mapstruct-jdk8:${mapstructVersion}"
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     compileOnly "org.mapstruct:mapstruct-processor:${mapstructVersion}"
-    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     apt "org.projectlombok:lombok:${lombokVersion}", "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.springframework.security:spring-security-test"
