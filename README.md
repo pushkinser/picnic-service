@@ -1,5 +1,6 @@
 # 🗺️ Picnic Service
-Some service for create picnic with friends. Choose a place, time, create a menu, entertainment, invite a friends, meet and have fun!
+Сервис для создания и планирования пикников с друзьями. Достаточно выбрать место, время, выбрать необходимое и отправиться на природу!
+
 
 [![Build Status](https://travis-ci.org/pushkinser/picnic-service.svg?branch=master)](https://travis-ci.org/pushkinser/picnic-service)
 
@@ -10,13 +11,32 @@ $ git clone https://github.com/pushkinser/picnic-service.git
 $ cd picnic-service
 $ gradle clean build
 ```
+
+### 🚪 Endpoints
+
+#### User Resources
+
+URL               | HTTP Method | Description
+------------------|-------------|------------
+ `api/user/:id`   | GET         | get user by id
+ `api/user/all`   | GET         | get all user
+
+
+### Item Resources
+URL             | HTTP Method |Model Attribute       | Description
+----------------|-------------|----------------------|------------
+`api/item/:id`  | GET         |                      | get item by id
+`api/edit`      | POST        |"item" ItemDTO        | edit item
+
 ### 🗄️ Database
 
-Using embedded HSQLDB
+В проекте используется встроенная HSQLDB:
 
-TABLE     | COLUMNS
-----------|-------
-user      | id, user_name, password, email
-role      | id, role_name
-user_role | id, user_id, role_id
+TABLE         | COLUMNS                                       |COMMENT
+--------------|-----------------------------------------------|---------
+user          | id, user_name, password, email                |user info
+role          | id, role_name                                 |role info
+user_role     | id, user_id, role_id                          |relation user @OneToOne role
+item_category | id, category_name                             |category info
+item          | id, item_title, description, item_category_id |item info
 
